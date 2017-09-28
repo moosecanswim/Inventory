@@ -10,13 +10,19 @@ public class Package {
     @GeneratedValue(strategy= GenerationType.AUTO)
     private long id;
     private String packageName;
+    private String description;
     private Boolean status;
     private Boolean archived;
     @OneToMany(mappedBy="aPackage", cascade=CascadeType.ALL,fetch=FetchType.EAGER)
     private Set<Part> parts;
+
     @ManyToOne(fetch=FetchType.EAGER)
     @JoinColumn(name="group_id")
     private Group aGroup;
+
+    @OneToOne(cascade=CascadeType.ALL)
+    @JoinColumn(name="inv_id")
+    private PackageInventory packageInv;
 
     public Package(){
         this.setStatus(true);
@@ -71,5 +77,21 @@ public class Package {
 
     public void setaGroup(Group aGroup) {
         this.aGroup = aGroup;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public PackageInventory getPackageInv() {
+        return packageInv;
+    }
+
+    public void setPackageInv(PackageInventory packageInv) {
+        this.packageInv = packageInv;
     }
 }

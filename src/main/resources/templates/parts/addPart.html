@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Create a Part</title>
+</head>
+<body>
+<div class="container">
+    <form action="#"
+          th:action="@{/processpart}"
+          th:object="${aPart}"
+          method="POST">
+        <legend>Enter Part Info</legend>
+        <fieldset>
+
+            <!--hidden fields-->
+            <input type="hidden" th:field="*{id}">
+            <input type="hidden" th:field="*{status}">
+            <input type="hidden" th:field="*{archived}">
+
+            Name: <input th:type="text" th:field="${partName}">
+            Description: <textarea cols="50" rows="4" th:field="*{description}"></textarea>
+
+           <p><input type="submit" value="Submit"><input type="reset" value="Clear"></p>
+        </fieldset>
+    </form>
+
+</div>
+
+</body>
+</html>

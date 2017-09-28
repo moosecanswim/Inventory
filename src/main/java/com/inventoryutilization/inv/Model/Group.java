@@ -4,12 +4,17 @@ import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
 
+/*
+A group is made of packages and is what is sent to an event or mailed out.  This will also have
+destination information TODO create an entity to manage this information
+ */
 @Entity
 public class Group {
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
     private long id;
     private String groupName;
+    private String description;
     private Boolean status;
     private Boolean archived;
     @OneToMany(mappedBy="aGroup", cascade= CascadeType.ALL,fetch=FetchType.EAGER)
@@ -59,5 +64,13 @@ public class Group {
 
     public void setPackages(Set<Package> packages) {
         this.packages = packages;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 }
