@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Part Page</title>
+</head>
+<body>
+    <div class="container">
+        <h1 th:inline="text">[[${aPart.partName}]] (id[[${aPart.id}]])</h1>
+        <p th:inline="text">Description:[[${aPart.description}]]</p>
+        <p th:inline="text">Internal Notes:[[${aPart.internalNotes}]]</p>
+        <p th:inline="text">Status:[[${aPart.status}]]</p>
+        <!--part inventory add here-->
+    </div>
+</body>
+</html>

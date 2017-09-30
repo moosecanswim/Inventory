@@ -12,6 +12,10 @@ public class PartInventory {
     private int quantity;
     private double price;
 
+    public PartInventory(){
+        this.quantity=0;
+        this.price=0.0;
+    }
 
     public long getId() {
         return id;

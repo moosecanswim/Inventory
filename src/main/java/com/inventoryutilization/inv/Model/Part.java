@@ -9,6 +9,7 @@ public class Part {
     private long id;
     private String partName;
     private String description;
+    private String internalNotes;
     private Boolean status;
     private Boolean archived;
 
@@ -81,5 +82,13 @@ public class Part {
 
     public void setPartInv(PartInventory partInv) {
         this.partInv = partInv;
+    }
+
+    public String getInternalNotes() {
+        return internalNotes;
+    }
+
+    public void setInternalNotes(String internalNotes) {
+        this.internalNotes = internalNotes;
     }
 }
